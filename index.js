@@ -1,3 +1,5 @@
+//FOR THE COMPLEXIY ANALYSIS I CONSIDER THIS ALGORITHM TO BE -- O(n)-Linear -- due to the loop through the string array
+
 
 /**
  * Function that checks if a string of brackets is balanced.
@@ -8,7 +10,6 @@ function balancedBracketChecker(string) {
 
     // map to store key value pairs for "symbol type"
     const bracketMap = new Map([[123, 'curly'], [125, 'curly'], [91, 'square'], [93, 'square'], [40, 'rounded'], [41, 'rounded']]);
-
 
     if (string.length === 0) return false;
 
