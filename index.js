@@ -1,39 +1,52 @@
-function parenthesisChecker(string) {
+
+/**
+ * Function that checks if a string of brackets is balanced.
+ * @param {string} String - A string of brackets ex: {[()]}
+ * @return {Boolean} bool - True if balanced, false otherwise.
+ */
+function balancedBracketChecker(string) {
+
+    // map to store key value pairs for "symbol type"
+    const bracketMap = new Map([[123, 'curly'], [125, 'curly'], [91, 'square'], [93, 'square'], [40, 'rounded'], [41, 'rounded']]);
+
+
     if (string.length === 0) return false;
 
-    let openingValue = '(';
-    let closingValue = ')';
-    // stringToArray = string.split('');
+    // checks if opening and closing symbol are of the same "type", if not brackets cannot be balanced
+    if (bracketMap.get(string.charCodeAt(0)) !== bracketMap.get(string.charCodeAt(string.length - 1))) return false;
+
+    // values to compare if each value has its corresponding pair
     let openingCount = 0;
     let closingCount = 0;
 
     for (let i = 0; i < string.length; i++) {
-
-        if (openingCount < closingCount) return false;
-
-        if (string[i] === openingValue) {
+        if (string[i] === '{') {
+            openingCount++
+        } else if (string[i] === '[') {
+            openingCount++;
+        }
+        else if (string[i] === '(') {
             openingCount++;
         } else {
             closingCount++;
         }
 
+        // if closing symbols are greater than the closing ones, brackets are not balanced
+        if (openingCount < closingCount) return false;
     }
 
-    console.log(openingCount)
-    console.log(closingCount)
-
     return openingCount === closingCount;
-
 }
 
-console.log(parenthesisChecker("((())"));
-// console.log(parenthesisChecker("()()"));
+
+console.log("is it balanced?", balancedBracketChecker("([)]"));
+console.log("is it balanced?", balancedBracketChecker("(]"));
+console.log("is it balanced?", balancedBracketChecker("([{}])"));
+console.log("is it balanced?", balancedBracketChecker("((()))"));
+console.log("is it balanced?", balancedBracketChecker("{}"));
+console.log("is it balanced?", balancedBracketChecker("[{}]"));
 
 
-// instead of parenthesis, include all the braket types.
 
-// ([{}]) = true
-// (] = false
-// ([)] = false
 
 
