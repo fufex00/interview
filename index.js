@@ -32,7 +32,7 @@ function balancedBracketChecker(string) {
             closingCount++;
         }
 
-        // if closing symbols are greater than the closing ones, brackets are not balanced
+        // if closing symbols are greater than the opening ones, brackets are not balanced
         if (openingCount < closingCount) return false;
     }
 
