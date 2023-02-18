@@ -45,7 +45,7 @@ console.log("is it balanced?", balancedBracketChecker("(]"));
 console.log("is it balanced?", balancedBracketChecker("([{}])"));
 console.log("is it balanced?", balancedBracketChecker("((()))"));
 console.log("is it balanced?", balancedBracketChecker("{}"));
-console.log("is it balanced?", balancedBracketChecker("[{}]"));
+console.log("is it balanced?", balancedBracketChecker("[{()()}({[]})]({}[({})])((((((()[])){}))[]{{{({({({{{{{{}}}}}})})})}}}))[][][]"));
 
 
 
